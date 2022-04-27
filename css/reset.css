@@ -1,0 +1,53 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+
+* {
+	box-sizing: border-box;
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	background:transparent;
+	font-family:'Noto Sans KR', 돋움, Dotum, sans-serif;
+	font-style:normal; 
+	font-weight:normal;
+	vertical-align:baseline;
+	word-break: keep-all;
+}
+
+
+body {
+  line-height:1; 
+  font-size: 16px; 
+  color: #222; 
+  background-color: #fff;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+ol, ul	{
+  list-style:none;
+}
+table	{
+  border-collapse:collapse;
+  border-spacing:0;
+}
+hr{
+  display:none;
+}
+a:link, a:visited, a:hover, a:active {
+  color:#222;
+  text-decoration:none;
+}
+label	{
+  vertical-align:middle;
+  cursor:pointer;
+}
+input	{
+  vertical-align:middle;
+}
+.alt { 
+  display: none;
+}
