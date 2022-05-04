@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="image" content="http://brekqkim.headstone01.gethompy.com/test/images/1.jpg">
     <title>가제</title>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/animate.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js" defer></script>
@@ -15,13 +16,18 @@
     <script src="js/txt.js" defer></script>
     <script src="js/common.js" defer></script>
 </head>
-<body id="calendar" class="caldendar">
+<body id="cal" class="cal">
     <section>
         <div class="section contents">
-            <div>
-                <div class="title">2022년 4월 기억</div>
-                <div class="wrap">
-                    <table>
+            <!-- 각각의 날짜들을 클릭했을 때, todo list가 떠야 한다 -->
+            <div class="frame">
+                <div class="title">2022년 5월 기억</div>
+                <div class="contents_wrap">
+                    <div class="btns">
+                        <div class="btn-prev"></div>
+                        <div class="btn-next"></div>
+                    </div>
+                    <table id="calendar">
                         <thead>
                             <tr>
                                 <th>일</th>
@@ -33,9 +39,7 @@
                                 <th>토</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr></tr>
-                        </tbody>
+                        <tbody id="calendar-body" class="calendar-body"></tbody>
                     </table>
                 </div>
             </div>

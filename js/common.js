@@ -1,8 +1,10 @@
 "use strict";
 
 $(function() {
+    // 해당 페이지로 이동하도록 해주는 함수
     let path = (location.href.substr(location.href.lastIndexOf("/") + 1)).split(".")[0]; 	//path
 
+    // 메인 페이지에서 tutorial를 넘기도록 해줌
     const Swipers = function(value, spaceBetween, loop){
         const swiper = new Swiper(value + '.Swipers', {
           direction: 'horizontal',
@@ -23,9 +25,13 @@ $(function() {
       }
 
     switch(path){
-        //index Page
+        
         case '' :
+
+        // 메인 페이지
         case 'index' :
+
+        // 메인페이지 내 해당 버튼을 클릭하면, 페이지 내 다른 div가 보인다.
             $('.btn1').on('click', function () {
                     $('.Starts').hide(); 
                     $('.Intro').show(); 
@@ -37,6 +43,7 @@ $(function() {
                 $('.Swipers').show(); 
             });
 
+            // 메인 3번째 div를 구성하는 함수
             for(let i = 0; i < 4; i++ ) {
                 $("#index .contents .Swipers .swiper-wrapper").append(
                     '<div class="swiper-slide">' +
@@ -50,6 +57,8 @@ $(function() {
             break;
 
             case 'calendar' :
+            
+            
               var currentTitle = document.getElementById('current-year-month');
               var calendarBody = document.getElementById('calendar-body');
               var today = new Date();
@@ -98,6 +107,10 @@ $(function() {
                       catchTr++;
                   }
               }
+
+              $("#cal .contents_wrap table tbody tr td").on("click", function() {
+                $("#cal .contents_wrap table tbody tr td").append('<div></div>');
+              });
 
               break;
         
