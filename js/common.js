@@ -57,15 +57,22 @@ $(function() {
             break;
 
             case 'calendar' :
-            
-            
+            // 현재 해당 '달'에 대한 타이틀 => 아직 반영 X
               var currentTitle = document.getElementById('current-year-month');
               var calendarBody = document.getElementById('calendar-body');
+              // 현재날짜
               var today = new Date();
+
+              // 해당 월의 첫번째 날에 대한 정보
               var first = new Date(today.getFullYear(), today.getMonth(),1);
+
+              // 해달 달에 대한 요일 및 그 해의 달에 대한 함수. 현재 반영 X
               var dayList = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
               var monthList = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+             // 윤달 아닌 평상시
               var leapYear=[31,29,31,30,31,30,31,31,30,31,30,31];
+              // 윤달
               var notLeapYear=[31,28,31,30,31,30,31,31,30,31,30,31];
               var pageFirst = first;
               var pageYear;
@@ -75,7 +82,9 @@ $(function() {
                   pageYear = notLeapYear;
               }
 
+              // 현재 해당 달력에 뿌려짐
               function showCalendar(){
+
                   let monthCnt = 100;
                   let cnt = 1;
                   for(var i = 0; i < 6; i++){
@@ -99,6 +108,7 @@ $(function() {
               }
               showCalendar();
 
+              // 다음달로 넘어갈 때. 현재 달 삭제됨.
               function removeCalendar(){
                   let catchTr = 100;
                   for(var i = 100; i< 106; i++){
