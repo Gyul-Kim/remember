@@ -5,7 +5,7 @@
 
 
 /* common */
-body {max-width:1200px;}
+body {max-width:1200px; height:100vh;}
 section {width:100%;height:100%;overflow:hidden;}
 section,.section {position:relative;width:100%;}
 .contents {position:relative; width:100%; height:100%; overflow:hidden; z-index:1;}
@@ -45,25 +45,28 @@ section,.section {position:relative;width:100%;}
 #cal .contents_wrap table tbody {position: relative; height:calc(100vh - 127px);}
 #cal .contents_wrap table tbody tr {height:calc(100% / 5);}
 #cal .contents_wrap table tbody tr td {position:relative; font-size:14px; text-align:center; top:12px; left: 7px; line-height:26px; color:#333; font-weight:500; cursor:pointer;}
-/* #cal .contents_wrap table tbody tr td::before {content:""; display:none; background-color:;} */
+#cal .contents_wrap table tbody tr td.active {color:#fff;}
+#cal .contents_wrap table tbody tr td span {display:none;}
+#cal .contents_wrap table tbody tr td.active span {position: absolute; display:block; top:1px; left:50%; width:24px; height:24px; transform:translateX(-50%); border-radius:4px; background-color:#2D4E7E; color:#fff;  z-index:-1;}
 
-#cal .todo_list {width:100%; max-width:1200px; height:100%; top:0; left:50%; transform:translateX(-50%); margin:0 auto; position:absolute; overflow:hidden;}
-#cal .todo_list .bg{display:block; position:absolute; top:0; left:0; background-color:#000; opacity:0.7; width:100%; height:100%; overflow:hidden; z-index:100;}
-#cal .todo_list .list  h5 {display:block; text-align:center; font-size:18px; font-weight:bold; color:#434D54; height:80px; padding:30px 0; border-bottom:1px solid rgba(242, 243, 247, 1);}
-#cal .todo_list .list {width:100%;  height:calc( 100vh - 63px ); position:absolute; top:63px; background-color:#fff; border-radius:20px 20px 0 0; z-index:100; transition:0.5s;}
+#cal .todo_list {width:100%; display:none; opacity:0; z-index:-1; max-width:1200px; height:100%; top:0; left:50%; transform:translateX(-50%); margin:0 auto; position:fixed;}
+#cal .todo_list .bg{display:none; position:absolute; top:0; left:0; background-color:#000; opacity:0.7; width:100%; height:100%; overflow:hidden; z-index:100;}
+#cal .todo_list .list  h5 {display:block; text-align:center; font-size:18px; position:static; top:0; font-weight:bold; color:#434D54; height:60px; padding:20px 0; border-bottom:1px solid rgba(242, 243, 247, 1);}
+#cal .todo_list .list {display:none; width:100%; height:90%; position:absolute; bottom:-100%; background-color:#fff; border-radius:20px 20px 0 0; z-index:100;}
 
 #cal .todo_list .list .todo_int {margin-top:16px;}
 #cal .todo_list .list .todo_int strong {display: block; color:#2D4E7E; font-size:14px; font-weight:700; height:32px;}
 #cal .todo_list .list .todo_int span {display: block; color:#798B97; font-size:14px; font-weight:500; height:40px; line-height:20px;}
 
-#cal .todo_list .list div {padding:0 16px;}
-#cal .todo_list .list div:not(.todo_int) {margin-top:32px;}
-#cal .todo_list .list div b {display:block; font-size:14px; font-weight:700; color:#333; margin-bottom:10px;}
-#cal .todo_list .list div input {display:block; width:calc(100% - 32px); height:48px; border:1px solid rgba(242, 243, 247, 1);}
-#cal .todo_list .list div:not(.todo_tit) input {width:45%; display:inline-block;}
-#cal .todo_list .list div em {display:inline-block; padding:0 8px;}
+#cal .todo_list .list > div {position: static; overflow-y:scroll;}
+#cal .todo_list .list > div div {padding:0 16px;}
+#cal .todo_list .list > div div:not(.todo_int) {margin-top:32px;}
+#cal .todo_list .list > div div b {display:block; font-size:14px; font-weight:700; color:#333; margin-bottom:10px;}
+#cal .todo_list .list > div div > input {display:block; width:calc(100% - 32px); height:48px; border:1px solid rgba(242, 243, 247, 1);}
+#cal .todo_list .list > div div:not(.todo_tit, .todo_memo) input {width:45%; display:inline-block;}
+#cal .todo_list .list > div div em {display:inline-block; padding:0 8px;}
 
-#cal .todo_list .list a {display:block; width:100%; height:80px; position:absolute; bottom:0; left:0; background-color:#3986FF; color:#fff; font-size:18px; text-align:center; font-weight:700; padding:30px 0;}
+#cal .todo_list .list button.input-data {display:block; width:100%; height:80px; position:static; bottom:0; left:0; background-color:#3986FF; color:#fff; font-size:18px; text-align:center; font-weight:700; padding:30px 0;}
 
 
 @media (width:767px) {

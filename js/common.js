@@ -25,7 +25,6 @@ $(function() {
       }
 
     switch(path){
-        
         case '' :
 
         // 메인 페이지
@@ -51,11 +50,9 @@ $(function() {
                     '</div>'
                 );
             } Swipers("#index .Swipers","auto", 0, false);
-
-            
-    
             break;
 
+            // 달력 페이지
             case 'calendar' :
             // 현재 해당 '달'에 대한 타이틀 => 아직 반영 X
               var currentTitle = document.getElementById('current-year-month');
@@ -108,60 +105,41 @@ $(function() {
               }
               showCalendar();
 
-            // 다음달로 넘어갈 때. 현재 달 삭제됨.
-            function removeCalendar(){
-                let catchTr = 100;
-                for(var i = 100; i< 106; i++){
-                    var $tr = document.getElementById(catchTr);
-                    $tr.remove();
-                    catchTr++;
-                }
-            }
-
-            // 날짜 클릭 및 각각의 창 나오기
-            function showMain(){
-            mainTodayDay.innerHTML = dayList[today.getDay()];
-            mainTodayDate.innerHTML = today.getDate();
-            }
-
-            // var clickedDate1 = document.getElementById(today.getDate());
-            // clickedDate1.classList.add('active');
-            // var prevBtn = document.getElementById('prev');
-            // var nextBtn = document.getElementById('next');
-            // prevBtn.addEventListener('click',prev);
-            // nextBtn.addEventListener('click',next);
-            
-            var tdGroup = [];
-            function clickStart(){
-                for(let i = 1; i <= pageYear[first.getMonth()]; i++){
-                    tdGroup[i] = document.getElementById(i);
-                    tdGroup[i].addEventListener('click',changeToday);
-                }
-            }
-            function changeToday(e){
-                for(let i = 1; i <= pageYear[first.getMonth()]; i++){
-                    if(tdGroup[i].classList.contains('active')){
-                        tdGroup[i].classList.remove('active');
+                // 다음달로 넘어갈 때. 현재 달 삭제됨.
+                function removeCalendar(){
+                    let catchTr = 100;
+                    for(var i = 100; i< 106; i++){
+                        var $tr = document.getElementById(catchTr);
+                        $tr.remove();
+                        catchTr++;
                     }
                 }
-                clickedDate1 = e.currentTarget;
-                clickedDate1.classList.add('active');
-                today = new Date(today.getFullYear(), today.getMonth(), clickedDate1.id);
-                showMain();
-                keyValue = today.getFullYear() + '' + today.getMonth()+ '' + today.getDate();
-                reshowingList();
-            }
+
+
+            // 달력 내 각각의 날짜를 클릭했을시, 날짜 표시와 일정 등록표 등장     
+            $("#cal .contents_wrap table tbody tr td").append('<span></span>');
+
+            $("#cal .contents_wrap table tbody tr td").on("click", function(){
+                $("#cal .contents_wrap table tbody tr td").not($(this)).removeClass('active');
+                $(this).toggleClass('active');
+                $(".todo_list").css({"display":"block","opacity":"1","z-index":"1","transition":" 0.25s ease-in-out"});
+                $(".todo_list .list").css({"bottom":"0","display":"block","transition":" 0.25s ease-in-out"});
+                $(".todo_list .bg").fadeIn(250);
+
+                
+            });
 
             // todo_list 검은 화면 누르면 내려가기
             $(".todo_list .bg").on("click",function(){
-                $(".todo_list .list").css("top","100%");
-                $(".todo_list .bg").fadeOut(500);
+                $(".todo_list").css({"display":"none","opacity":"0","z-index":"-1","transition":" 0.25s ease-in-out"});
+                $(".todo_list .list").css({"bottom":"0","display":"none","transition":" 0.25s ease-in-out"});
+                $(".todo_list .bg").fadeOut(250);
                 return false;
             });
 
 
 
-              break;
+            break;
         
             default : location.href = "index.html";
     }

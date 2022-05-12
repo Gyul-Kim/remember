@@ -21,7 +21,7 @@
         <div class="section contents">
             <!-- 각각의 날짜들을 클릭했을 때, todo list가 떠야 한다 -->
             <div class="frame">
-                <div class="title">2022년 5월 기억</div>
+                <div class="title" id="current-year-month">2022년 5월 기억</div>
                 <div class="contents_wrap">
                     <div class="btns">
                         <div class="btn-prev"></div>
@@ -43,38 +43,41 @@
                     </table>
                 </div>
 
-                <div class="todo_list">
+                <div class="todo_list active">
                     <div class="bg"></div>
                     <div class="list">
                         <h5>일정 등록</h5>
-                        <div class="todo_int">
-                            <strong>내용을 키워드로 입력해 주세요.</strong>
-                            <span>
-                                키워드 중심으로 일정의 제모고가 위치를 입력해 주세요. <br>
-                                키워드 단위로 기억할 경우 기억 효율이 극대화 됩니다.
-                            </span>
-                        </div>
-                        <div class="todo_tit">
-                            <b>제목</b>
-                            <input type="text" id="" name="" placeholder="제목을 입력해 주세요.">
-                        </div>
                         <div>
-                            <b>기간</b>
-                            <input type="text" id="" name="" placeholder="2022-05-10">
-                            <em>~</em>
-                            <input type="text" id="" name="" placeholder="2022-05-10">
+                            <div class="todo_int">
+                                <strong>내용을 키워드로 입력해 주세요.</strong>
+                                <span>
+                                    키워드 중심으로 일정의 제목과 위치를 입력해 주세요. <br>
+                                    키워드 단위로 기억할 경우 기억 효율이 극대화 됩니다.
+                                </span>
+                            </div>
+                            <div class="todo_tit">
+                                <b>제목</b>
+                                <input type="text" id="" name="" placeholder="제목을 입력해 주세요.">
+                            </div>
+                            <div>
+                                <b>기간</b>
+                                <input type="text" id="mian-day" name="main-day" placeholder="">
+                                <em>~</em>
+                                <input type="text" id="main-day" name="main-day" placeholder="">
+                            </div>
+                            <div>
+                                <b>시간</b>
+                                <input type="text" id="" name="" placeholder="HH-MM">
+                                <em>~</em>
+                                <input type="text" id="" name="" placeholder="HH-MM">
+                            </div>
+                            <div class="todo_memo">
+                                <b>메모</b>
+                                <input type="text" id="" name="" placeholder="위치 또는 메모할 내용을 입력해 주세요.">
+                            </div>
                         </div>
-                        <div>
-                            <b>시간</b>
-                            <input type="text" id="" name="" placeholder="HH-MM">
-                            <em>~</em>
-                            <input type="text" id="" name="" placeholder="HH-MM">
-                        </div>
-                        <div>
-                            <b>메모</b>
-                            <input type="text" id="" name="" placeholder="위치 또는 메모할 내용을 입력해 주세요.">
-                        </div>
-                        <a href="#">등록하기</a>
+                        <button type="button" id="input-data" class="input-data">등록하기</button>
+                        <div id="input-list" class="input-list"></div>
                     </div>
                 </div>
             </div>
